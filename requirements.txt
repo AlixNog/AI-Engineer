@@ -1,3 +1,4 @@
 groq
-pydantic
 pydantic-ai
+pypdf
+pathlib
