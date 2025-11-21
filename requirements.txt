@@ -1,4 +1,3 @@
-groq
 pydantic-ai
 pypdf
 pathlib

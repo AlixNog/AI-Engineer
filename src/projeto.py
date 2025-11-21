@@ -1,7 +1,6 @@
 from pydantic_ai import Agent
 from pathlib import Path
 import pypdf
-import os
 import sys
 
 def extract_text_from_pdf(reader):
@@ -28,7 +27,6 @@ def main():
         return
     
     # Inicializa o agente do Groq
-    groq_api_key = os.getenv("GROQ_API_KEY")
     agent = Agent('groq:llama-3.3-70b-versatile')
 
     # Lê e extrai o texto do PDF (OCR)
