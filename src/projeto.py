@@ -5,11 +5,11 @@ import sys
 
 def extract_text_from_pdf(reader):
     ''''
-    Extracts and returns the full text from a PDF reader object.
-    Args:
-        reader (pypdf.PdfReader): The PDF reader object.
-    Returns:
-        str: The extracted text from the PDF.
+    Extrai e retorna o texto completo de um objeto leitor de PDF.
+    Argumentos:
+        reader (pypdf.PdfReader): O objeto leitor de PDF.
+    Retorna:
+        str: O texto extraído do PDF.
     '''
     full_text = ""
     for page in reader.pages:
@@ -23,7 +23,7 @@ def main():
     if len(sys.argv) > 1:
         pdf_name = sys.argv[1]
     else:
-        print("Usage: python src/projeto.py <path_to_pdf>")
+        print("Modo de uso: python src/projeto.py <path_to_pdf>")
         return
     
     # Inicializa o agente do Groq
@@ -31,6 +31,9 @@ def main():
 
     # Lê e extrai o texto do PDF (OCR)
     pdf_path = Path(pdf_name)
+    if not pdf_path.is_file():
+        print(f"O arquivo {pdf_path} não foi encontrado.")
+        return
     reader = pypdf.PdfReader(pdf_path)
     full_text = extract_text_from_pdf(reader)
 
